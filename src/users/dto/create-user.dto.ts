@@ -15,12 +15,6 @@ export class UserLogin {
 }
 
 export class CreateUserDto extends UserLogin {
-  // @ApiProperty({ example: 'user@mail.com', description: 'Email' })
-  // readonly email: string;
-
-  // @ApiProperty({ example: 'pass123!', description: 'Password' })
-  // readonly password: string;
-
   @ApiProperty({ example: 'owner', description: 'Role' })
   readonly role: string;
 }

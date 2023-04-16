@@ -2,10 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 import {
   Column,
   DataType,
+  HasMany,
+  HasOne,
   Model,
   Table,
-  BelongsToMany,
 } from 'sequelize-typescript';
+import { CV } from 'src/cv/cv.model';
+import { Estate } from 'src/estates/estates.model';
 
 interface UserCreationAttrs {
   email: string;
@@ -68,4 +71,10 @@ export class User extends Model<User, UserCreationAttrs> {
     allowNull: false,
   })
   role: string;
+
+  @HasMany(() => Estate)
+  estate: Estate[];
+
+  @HasOne(() => CV)
+  cv: CV;
 }

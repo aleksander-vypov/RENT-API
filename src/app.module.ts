@@ -4,7 +4,10 @@ import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { User } from './users/users.model';
 import { AuthModule } from './auth/auth.module';
-import { EstateModule } from './estate/estate.module';
+import { EstateModule } from './estates/estates.module';
+import { СurriculumsModule } from './cv/сv.module';
+import { Estate } from './estates/estates.model';
+import { CV } from './cv/cv.model';
 
 @Module({
   imports: [
@@ -18,12 +21,13 @@ import { EstateModule } from './estate/estate.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User],
+      models: [User, Estate, CV],
       autoLoadModels: true,
     }),
     UsersModule,
     AuthModule,
     EstateModule,
+    СurriculumsModule,
   ],
 })
 export class AppModule {}
